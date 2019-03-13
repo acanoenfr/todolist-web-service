@@ -10,21 +10,15 @@ function getParameterByName(name) {
 	return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
-
 /**
- * jQuery: Call anonym function
+ * jQuery: Show all tasks
  */
-$(function () {
-
-    /**
-     * jQuery: Get tasks
-     */
-    $(document).ready(function () {
-        $.ajax(`http://localhost/tasks`, {
-            success: function (data) {
-                for (let i = 0; i < data.length; i++) {
-                    let date = (new Date(data[i].task_at)).toLocaleString()
-                    $(`.table-body`).append(
+function initialize() {
+    $.ajax(`http://localhost/tasks`, {
+        success: function (data) {
+            for (let i = 0; i < data.length; i++) {
+                let date = (new Date(data[i].task_at)).toLocaleString()
+                $(`.table-body`).append(
                     `<tr class="row" data-id="${data[i].id}">
                         <td>${data[i].id}</td>
                         <td>${data[i].name}</td>
@@ -39,9 +33,22 @@ $(function () {
                             </button>
                         </td>
                     </tr>`)
-                }
             }
-        })
+        }
+    })
+}
+
+
+/**
+ * jQuery: Call anonym function
+ */
+$(function () {
+
+    /**
+     * jQuery: Get tasks
+     */
+    $(document).ready(function () {
+        initialize()
         $.ajax(`http://localhost/persons`, {
             success: function (data) {
                 let t = "";
@@ -94,9 +101,8 @@ $(function () {
             type: `DELETE`,
             success: function (data) {
                 console.info(data)
-                if (data.success == "Your task is saved.") {
-                    window.location = "/app/index.html"
-                }
+                alert(data.success)
+                initialize()
             }
         })
     })
@@ -114,9 +120,8 @@ $(function () {
             type: `PUT`,
             success: function (data) {
                 console.info(data)
-                if (data.success == "Your task is saved.") {
-                    window.location = "/app/index.html"
-                }
+                alert(data.success)
+                initialize()
             }
         })
     })
@@ -131,9 +136,8 @@ $(function () {
             type: `POST`,
             success: function (data) {
                 console.info(data)
-                if (data.success == "Your task is saved.") {
-                    window.location = "/app/index.html"
-                }
+                alert(data.success)
+                initialize()
             }
         })
     })
