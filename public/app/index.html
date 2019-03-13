@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>TodoList - acanoen.fr</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="image/png" href="/app/me.png">
+        <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.7.2/css/all.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="/app/style.css" />
+    </head>
+    <body>
+        <nav class="navbar">
+            <a href="/app/index.html" class="navbar-brand">TodoList</a>
+        </nav>
+        <main id="app">
+            <form class="form-add" method="post" action="">
+                <div class="input-group" id="taskAt-group">
+                    <input id="task_at" name="task_at" type="datetime-local" class="input-control">
+                </div>
+                <div class="input-group" id="name-group">
+                    <input id="name" name="name" type="text" class="input-control" placeholder="Nom de la tâche">
+                </div>
+                <div class="input-group" name="submit-group">
+                    <button type="submit" class="btn-send">+</button>
+                </div>
+            </form>
+            <table class="table">
+                <thead class="table-head">
+                    <tr>
+                        <th>Numéro</th>
+                        <th>Tâche</th>
+                        <th>Date</th>
+                        <th>Personne</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="table-body">
+                    <!-- GET /tasks -->
+                </tbody>
+            </table>
+        </main>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="/app/script.js"></script>
+    </body>
+</html>

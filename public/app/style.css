@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.navbar {
+    position: relative;
+    top: 0; left: 0; right: 0;
+    line-height: 30px;
+    padding: 15px;
+    background-color: #80CBC4;
+}
+
+.navbar .navbar-brand {
+    font-size: 1.4rem;
+    color: white;
+    text-decoration: none;
+}
+
+#app {
+    margin-top: 2.4rem;
+}
+
+#app .form-add {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#app .form-add .input-group {
+    padding-right: 15px;
+}
+
+#app .form-add .input-group .input-control[name="name"] {
+    width: 15rem;
+}
+
+#app .form-add .input-group .input-control {
+    height: 2rem;
+    font-size: 1.2rem;
+    border-radius: 2px;
+    border-color: #FF6E40;
+}
+
+#app .form-add .input-group .btn-send {
+    height: 2rem;
+    font-size: 1.2rem;
+    border-radius: 2px;
+    padding: 5px;
+    background-color: #FF6E40;
+    border: none;
+    color: white;
+}
+
+.table {
+    margin-top: 2.4rem;
+    width: 100%;
+    text-align: center;
+}
+
+.table tr {
+    line-height: 60px;
+}
