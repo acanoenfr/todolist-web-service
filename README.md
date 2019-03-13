@@ -1,5 +1,5 @@
 # TodoList
-TodoList Interface with its API
+TodoList Interface with its web service
 
 ## Getting started
 
