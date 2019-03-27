@@ -139,6 +139,7 @@ $(function () {
                 console.info(data)
                 alert(data.success)
                 initialize()
+                $(".form-add")[0].reset()
             }
         })
     })
