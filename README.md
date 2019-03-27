@@ -13,6 +13,10 @@ composer install
 php -S 0.0.0.0:8080 -ddisplay_errors=0 -t public/
 ```
 
+(3) Go to /app/person.html: Add person to persons list
+
+(3) Go to /app/index.html: Add task assigned to a person
+
 ## URLs
 
 * Interface /app
