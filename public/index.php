@@ -37,6 +37,30 @@ $container['view'] = function ($container) {
     return $view;
 };
 
+$app->add(function(\Slim\Http\Request $request, \Slim\Http\Response $response, $next) {
+
+    $token = trim(stripcslashes(htmlentities($request->getParam('token'))));
+    $state = false;
+
+    if (isset($token) && $token === "843n6iNmfBnM423DTjM3H4a7wNt3QuGe") {
+        $state = true;
+    } else {
+        $state = false;
+    }
+
+    $response = $next($request, $response);
+
+    if ($state) {
+        return $response;
+    } else {
+        return $response->withJson([
+            "error" => "Token is invalid or not entered.",
+            "executed_at" => (new DateTime())->format('Y-m-d H:i:s')
+        ]);
+    }
+
+});
+
 $app->get("/persons", function (\Slim\Http\Request $req, \Slim\Http\Response $res, $args) {
     $res->withHeader('Content-Type', 'application/json; charset=UTF-8');
     $stmt = $this->db->prepare("SELECT * FROM persons");
