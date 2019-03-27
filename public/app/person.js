@@ -14,7 +14,7 @@ function getParameterByName(name) {
  * jQuery: Show all persons
  */
 function initialize() {
-    $.ajax(`http://localhost/persons`, {
+    $.ajax(`http://localhost/persons?token=843n6iNmfBnM423DTjM3H4a7wNt3QuGe`, {
         success: function (data) {
             for (let i = 0; i < data.length; i++) {
                 let date = (new Date(data[i].task_at)).toLocaleString()
@@ -51,7 +51,7 @@ $(function () {
     $(document).on(`click`, `.row`, function (e) {
         e.preventDefault()
         let id = $(this).attr(`data-id`)
-        $.ajax(`http://localhost/persons/${id}`, {
+        $.ajax(`http://localhost/persons/${id}?token=843n6iNmfBnM423DTjM3H4a7wNt3QuGe`, {
             type: `GET`,
             success: function (data) {
                 for (let i = 0; i < data.length; i++) {
@@ -80,12 +80,12 @@ $(function () {
         e.preventDefault()
         let id = $(this).attr(`data-id`)
         console.log(id)
-        $.ajax(`http://localhost/persons/delete/${id}`, {
+        $.ajax(`http://localhost/persons/delete/${id}?token=843n6iNmfBnM423DTjM3H4a7wNt3QuGe`, {
             type: `DELETE`,
             success: function (data) {
                 console.info(data)
                 alert(data.success)
-                initialize()
+                window.location.reload()
             }
         })
     })
@@ -97,12 +97,12 @@ $(function () {
         let id = $(`#id`).val()
         let person = $(`#u-person`).val()
         console.log(person, id)
-        $.ajax(`http://localhost/persons/update/${id}?person=${person}`, {
+        $.ajax(`http://localhost/persons/update/${id}?person=${person}?token=843n6iNmfBnM423DTjM3H4a7wNt3QuGe`, {
             type: `PUT`,
             success: function (data) {
                 console.info(data)
                 alert(data.success)
-                initialize()
+                window.location.reload()
             }
         })
     })
@@ -111,12 +111,12 @@ $(function () {
         e.preventDefault()
         let person = $(`#person`).val()
         console.log(person)
-        $.ajax(`http://localhost/persons/new?person=${person}`, {
+        $.ajax(`http://localhost/persons/new?person=${person}?token=843n6iNmfBnM423DTjM3H4a7wNt3QuGe`, {
             type: `POST`,
             success: function (data) {
                 console.info(data)
                 alert(data.success)
-                initialize()
+                window.location.reload()
             }
         })
     })

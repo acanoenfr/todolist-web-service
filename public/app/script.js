@@ -14,7 +14,7 @@ function getParameterByName(name) {
  * jQuery: Show all tasks
  */
 function initialize() {
-    $.ajax(`http://localhost/tasks`, {
+    $.ajax(`http://localhost/tasks?token=843n6iNmfBnM423DTjM3H4a7wNt3QuGe`, {
         success: function (data) {
             for (let i = 0; i < data.length; i++) {
                 let date = (new Date(data[i].task_at)).toLocaleString()
@@ -49,7 +49,7 @@ $(function () {
      */
     $(document).ready(function () {
         initialize()
-        $.ajax(`http://localhost/persons`, {
+        $.ajax(`http://localhost/persons?token=843n6iNmfBnM423DTjM3H4a7wNt3QuGe`, {
             success: function (data) {
                 let t = "";
                 data.forEach(function (item) { t +=`<option value="`+ item.id +`">`+item.person+`</option>` })
@@ -65,7 +65,7 @@ $(function () {
     $(document).on(`click`, `.row`, function (e) {
         e.preventDefault()
         let id = $(this).attr(`data-id`)
-        $.ajax(`http://localhost/tasks/${id}`, {
+        $.ajax(`http://localhost/tasks/${id}?token=843n6iNmfBnM423DTjM3H4a7wNt3QuGe`, {
             type: `GET`,
             success: function (data) {
                 for (let i = 0; i < data.length; i++) {
@@ -97,12 +97,12 @@ $(function () {
         e.preventDefault()
         let id = $(this).attr(`data-id`)
         console.log(id)
-        $.ajax(`http://localhost/tasks/delete/${id}`, {
+        $.ajax(`http://localhost/tasks/delete/${id}?token=843n6iNmfBnM423DTjM3H4a7wNt3QuGe`, {
             type: `DELETE`,
             success: function (data) {
                 console.info(data)
                 alert(data.success)
-                initialize()
+                window.location.reload()
             }
         })
     })
@@ -116,12 +116,12 @@ $(function () {
         let id = $(`#id`).val()
         let user_id = $(`#user_id`).val()
         console.log(name, task_at, id)
-        $.ajax(`http://localhost/tasks/update/${id}?name=${name}&date=${task_at}&person=${user_id}`, {
+        $.ajax(`http://localhost/tasks/update/${id}?name=${name}&date=${task_at}&person=${user_id}?token=843n6iNmfBnM423DTjM3H4a7wNt3QuGe`, {
             type: `PUT`,
             success: function (data) {
                 console.info(data)
                 alert(data.success)
-                initialize()
+                window.location.reload()
             }
         })
     })
@@ -132,12 +132,12 @@ $(function () {
         let task_at = $(`#task_at`).val()
         let person = $(`#person`).val()
         console.log(name, task_at)
-        $.ajax(`http://localhost/tasks/new?name=${name}&date=${task_at}&person=${person}`, {
+        $.ajax(`http://localhost/tasks/new?name=${name}&date=${task_at}&person=${person}?token=843n6iNmfBnM423DTjM3H4a7wNt3QuGe`, {
             type: `POST`,
             success: function (data) {
                 console.info(data)
                 alert(data.success)
-                initialize()
+                window.location.reload()
             }
         })
     })
