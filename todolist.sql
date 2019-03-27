@@ -33,18 +33,6 @@ CREATE TABLE `persons` (
   `person` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Déchargement des données de la table `persons`
---
-
-INSERT INTO `persons` (`id`, `person`) VALUES
-(1, 'Alexandre'),
-(3, 'Olivier'),
-(8, 'Jean Baptiste'),
-(10, 'John Codeur'),
-(12, 'Grafikart'),
-(13, 'Theresa');
-
 -- --------------------------------------------------------
 
 --
@@ -57,20 +45,6 @@ CREATE TABLE `tasks` (
   `task_at` text NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `tasks`
---
-
-INSERT INTO `tasks` (`id`, `name`, `task_at`, `user_id`) VALUES
-(6, 'Corriger TP LP DIM', '2019-03-27T12:00', 3),
-(10, 'Devoir', '2018-04-01T08:00', 1),
-(13, 'Arriv&eacute;e stagiaire', '2018-04-01T10:00', 8),
-(15, 'Test TouchAlert', '2019-04-05T10:00', 1),
-(16, 'Rentre ma formation gratuite', '2019-04-01T11:00', 10),
-(17, 'Supprimer le premium', '2019-04-01T11:00', 12),
-(20, 'Etat des lieux', '2019-03-29T09:00', 1),
-(21, 'Watch TV', '2019-03-29T20:00', 13);
 
 --
 -- Index pour les tables déchargées
@@ -97,13 +71,13 @@ ALTER TABLE `tasks`
 -- AUTO_INCREMENT pour la table `persons`
 --
 ALTER TABLE `persons`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT pour la table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- Contraintes pour les tables déchargées
