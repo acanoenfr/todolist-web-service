@@ -16,6 +16,7 @@ function getParameterByName(name) {
 function initialize() {
     $.ajax(`http://localhost/persons?token=843n6iNmfBnM423DTjM3H4a7wNt3QuGe`, {
         success: function (data) {
+            $(".table-body").empty()
             for (let i = 0; i < data.length; i++) {
                 let date = (new Date(data[i].task_at)).toLocaleString()
                 $(`.table-body`).append(
@@ -85,7 +86,7 @@ $(function () {
             success: function (data) {
                 console.info(data)
                 alert(data.success)
-                window.location.reload()
+                initialize()
             }
         })
     })
@@ -97,12 +98,12 @@ $(function () {
         let id = $(`#id`).val()
         let person = $(`#u-person`).val()
         console.log(person, id)
-        $.ajax(`http://localhost/persons/update/${id}?person=${person}?token=843n6iNmfBnM423DTjM3H4a7wNt3QuGe`, {
+        $.ajax(`http://localhost/persons/update/${id}?person=${person}&token=843n6iNmfBnM423DTjM3H4a7wNt3QuGe`, {
             type: `PUT`,
             success: function (data) {
                 console.info(data)
                 alert(data.success)
-                window.location.reload()
+                initialize()
             }
         })
     })
@@ -111,12 +112,12 @@ $(function () {
         e.preventDefault()
         let person = $(`#person`).val()
         console.log(person)
-        $.ajax(`http://localhost/persons/new?person=${person}?token=843n6iNmfBnM423DTjM3H4a7wNt3QuGe`, {
+        $.ajax(`http://localhost/persons/new?person=${person}&token=843n6iNmfBnM423DTjM3H4a7wNt3QuGe`, {
             type: `POST`,
             success: function (data) {
                 console.info(data)
                 alert(data.success)
-                window.location.reload()
+                initialize()
             }
         })
     })
